@@ -1,6 +1,6 @@
 import requests
 
-URL = "http://127.0.0.1:5000/automated_testing"
+URL = "https://redditflairdetect.herokuapp.com/automated_testing"
 
 files = {'file': open('file.txt', 'r')}
 r = requests.post(URL, files=files, data={})

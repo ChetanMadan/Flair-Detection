@@ -1,4 +1,53 @@
-<form method="POST">
-    <input name="text">
-    <input type="submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='font-awesome.min.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='script.js') }}">
+
+    <title>Reddit Flair Detector</title>
+</head>
+<!--body background="{{ url_for('static', filename='back.jpg') }}"-->
+<body>
+<!-- div used to make the body blur -->
+    <div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+    <section class="head index-part-1">
+        
+          <div class="wow">
+          <div class="container">
+            <div class="row">
+               <div class="wow-logo">
+
+                  <!--img class="img-responsive img-logo" src="{{ url_for('static', filename='wow_logo.png') }}"-->
+                  <h1> <center>Reddit Flair Detection</center></h1>
+               </div> 
+               <div class="font-1 helmet text-center">
+                 <p>Enter a Reddit post URL:</p>
+               </div>
+               <div class="wow-btn text-center">
+                      
+                     <form method="POST">
+                    <input name="text">
+                    <input type="submit">
+                </form>
+               </div>
+            </div>
+          </div>
+        </div>
+    </section>
+ 
+</body>
+</html>
+
+
