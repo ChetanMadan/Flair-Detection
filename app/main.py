@@ -2,7 +2,9 @@ import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 from predict_flair import make_single_prediction, make_multiple_prediction
+import sys
 
+sys.path.append("")
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,8 +15,11 @@ def my_form():
 def my_form_post():
     text = request.form['text']
 
-    processed_text = make_single_prediction()
-    to_return = "The submission had the flair: " + processed_text[0]
+    processed_text = make_single_prediction(text)
+    if processed_text == 0:
+    	to_return = "Invalid URL"
+    else:
+    	to_return = "The submission had the flair: " + processed_text[0]
     return to_return
 
 @app.route('/automated_testing', methods=['POST', 'GET'])

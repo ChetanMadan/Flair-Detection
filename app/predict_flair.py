@@ -33,21 +33,23 @@ def get_comments(s):
 		return comment
 
 def make_single_prediction(url):
+	try:
+		reddit = praw.Reddit(user_agent='reddit_scrapper',client_id='JTHhWnxWZscuMQ',client_secret="3IqQuupFVVlXJDmqBBPSSzkXYn8",username='ChetanMadan', password='Alwaysbehappy.12')
 
-	reddit = praw.Reddit(user_agent='reddit_scrapper',client_id='JTHhWnxWZscuMQ',client_secret="3IqQuupFVVlXJDmqBBPSSzkXYn8",username='ChetanMadan', password='Alwaysbehappy.12')
+		#url = 'https://www.reddit.com/r/india/comments/g1zi21/coronavirus_covid19_megathread_news_and_updates_4/'
+		sub = praw.models.Submission(reddit, url = url)
 
-	#url = 'https://www.reddit.com/r/india/comments/g1zi21/coronavirus_covid19_megathread_news_and_updates_4/'
-	sub = praw.models.Submission(reddit, url = url)
-
-	title = clean_text(str(sub.title))
-	comments = clean_text(get_comments(sub))
-	url = str(sub.url)
-	body = clean_text(str(sub.selftext))
-	features = title + comments + url + body
+		title = clean_text(str(sub.title))
+		comments = clean_text(get_comments(sub))
+		url = str(sub.url)
+		body = clean_text(str(sub.selftext))
+		features = title + comments + url + body
 
 
-	model = joblib.load('gb_model.sav')
-	flair = model.predict([features])
+		model = joblib.load('gb_model.sav')
+		flair = model.predict([features])
+	except praw.exceptions.ClientException:
+		flair = 0
 
 	#print(features, str(sub.link_flair_text))
 	return flair
