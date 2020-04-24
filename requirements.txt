@@ -10,3 +10,4 @@ flask
 regex
 beautifulsoup4
 nltk
+lxml
