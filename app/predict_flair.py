@@ -7,6 +7,8 @@ BAD_SYMBOLS_RE = re.compile('[^0-9a-z #+_]')
 STOPWORDS = set(stopwords.words('english'))
 
 from bs4 import BeautifulSoup
+
+
 def clean_text(text):
     soup = BeautifulSoup(text, "lxml")
     text = soup.text
