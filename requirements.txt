@@ -1,0 +1,6 @@
+praw
+scikit-learn
+matplotlib
+pandas
+requests
+seaborn
