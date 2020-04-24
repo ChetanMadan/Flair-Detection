@@ -7,5 +7,5 @@ seaborn
 gunicorn
 werkzeug
 flask
-re
-bs4
+regex
+beautifulsoup4
