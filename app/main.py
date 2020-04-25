@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 #from predict_flair import make_single_prediction, make_multiple_prediction
 import sys
 
-
+import json
 import praw
 import joblib
 import re
@@ -88,7 +88,7 @@ def make_multiple_prediction(urls):
 		except praw.exceptions.ClientException:
 			flairs[url] = "Invalid URL"
 	#print(features, str(sub.link_flair_text))
-	return flairs
+	return json.dumps(flairs)
 	
 
 @app.route('/')
