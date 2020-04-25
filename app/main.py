@@ -102,9 +102,11 @@ def my_form_post():
     processed_text = make_single_prediction(text)
     if processed_text == 0:
     	to_return = "Invalid URL"
+    	return render_template('result.html', data = [to_return, ""])
     else:
-    	to_return = "The submission had the flair: " + processed_text[0]
-    return to_return
+    	to_return = "The submission with URL: {} had the flair: ".format(text)
+    	return render_template('result.html', data = [to_return, processed_text[0]])
+
 
 @app.route('/automated_testing', methods=['POST', 'GET'])
 def getfile():
