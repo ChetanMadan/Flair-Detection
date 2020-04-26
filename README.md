@@ -1,4 +1,4 @@
-# Reddit Flair Detectin  
+# Reddit Flair Detection  
 
 ### Steps to reproduce: 
 
@@ -14,11 +14,13 @@ pip install -r requirements.txt
 - EDA Analysis
 - Flair Detection
 
-3. Go to folder app 
+3. Open terminal and brose to the folder app: 
 
-4. Run the flask application: 
+```
+cd app
+```
 
-Open terminal and execute the following commands: 
+4. Run the flask application:  
 
 ```
 export FLASK_APP=main.py
